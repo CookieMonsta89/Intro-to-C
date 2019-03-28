@@ -15,6 +15,14 @@
 */
 void string_copy(char *x, char *y)
 {
+    int i;
+    for (i = 0; y[i] != '\0'; i++)
+    {
+        x[i] = y[i];
+    }
+    x[i +1] = y[i];
+
+    x = &x[i + 1];
 
 }
 
@@ -28,6 +36,17 @@ void string_copy(char *x, char *y)
 */
 char *find_char(char *str, int c)
 {
+    int i;
+    char *found;
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == c)
+        {
+            found = &str[i];
+        }
+    }
+
+    return found;
 
 }
 
@@ -41,6 +60,35 @@ char *find_char(char *str, int c)
 */
 char *find_string(char *haystack, char *needle)
 {
+    int i;
+    char *found;
+
+    int lengthOfNeedle = strlen(needle);
+    for (i = 0; haystack[i] != '\0'; i++)
+    {
+
+        int j;
+        if (haystack[i] == needle[0])
+        {
+            found = &haystack[i];
+            for (j = 0; j < (lengthOfNeedle + 1); j++)
+            {
+                if (found[j] == needle[j])
+                {
+                    found = &haystack[i];
+                }
+
+                //if you get to the end of the loop and get to the null terminator you have found the needle
+                else if (needle[j] == '\0')
+                {
+                    // printf("Found needle in a haystack! : %c\n", *needle);
+
+                    ;
+                }
+            }
+        }
+    }
+    return found;
 
 }
 
