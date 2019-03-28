@@ -25,6 +25,7 @@ int fizzbuzz(int n)
             counter++;
         }
     }
+    printf("%i\n", counter);
     return counter;
 
 }
